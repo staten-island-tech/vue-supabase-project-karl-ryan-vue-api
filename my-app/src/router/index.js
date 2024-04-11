@@ -19,6 +19,7 @@ const router = createRouter({
       name: 'shoppingcart',
       component: () => import('../views/AboutView.vue')
     },
+  
   ]
 })
 
