@@ -1,6 +1,9 @@
+<script setup>
+import BrowseCata from '../components/BrowseCata.vue'
+</script>
+
 <template>
-  <div class="about">
-  </div>
+  <BrowseCata/>
 </template>
 
 <style>

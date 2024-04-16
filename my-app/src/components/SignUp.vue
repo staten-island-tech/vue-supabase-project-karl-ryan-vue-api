@@ -9,14 +9,14 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">POOP</h1>
+    <h1 class="green"></h1>
     <h3>
       Disclaimer: This website does not directly allow you to buy classified tank parts and is just a simulation. Nevertheless, you still need an account to access our website.
     </h3>
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
@@ -39,4 +39,4 @@ h3 {
     text-align: left;
   }
 }
-</style>
+</style> -->
