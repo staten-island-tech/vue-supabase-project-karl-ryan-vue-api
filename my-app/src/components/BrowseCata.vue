@@ -7,6 +7,13 @@ let { data, error } = await supabase
   .from('products-germany')
   .select('tank_name')
 console.log({data,error})
+
+// export async function signUpNewUser( email, password) {
+//   const { data, error } = await supabase.auth.signUp({
+//     email: email,
+//     password: password,
+//   })
+//   console.log({data,error})}
 </script>
   
 <template>
