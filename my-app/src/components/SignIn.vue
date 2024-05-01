@@ -19,7 +19,7 @@
                     <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
                 </div>
 
-                    <Button @click="submit"label="Sign In" icon="pi pi-user" class="w-full"></Button>
+                    <Button @click="submit" label="Sign In" icon="pi pi-user" class="w-full"></Button>
             </div>
         </div>
 
