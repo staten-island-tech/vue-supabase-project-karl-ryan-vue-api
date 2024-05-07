@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { signUpNewUser } from './supabase';
+import { authUser } from './supabase';
+
 export default {
   data() {
     return {
@@ -39,7 +40,7 @@ export default {
   },
   methods: {
     async submit() {
-      signUpNewUser(this.user.email,this.user.password)
+      authUser(this.user.email,this.user.password)
     }
   }
 }

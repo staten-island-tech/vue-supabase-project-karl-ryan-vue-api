@@ -7,8 +7,6 @@ import {ref, watch} from 'vue'
 
 export const userState = defineStore('user', {
   userData: () =>{
-  const email = [];
-  const password = [];
   const signUp = async (email, password) => {
     const { error } = await supabase.auth.signUp({
       email,
