@@ -1,4 +1,10 @@
 import './assets/main.css'
+import PrimeVue from "primevue/config";
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import App from './App.vue'
+import router from './router'
+import "primeflex/primeflex.css";
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
