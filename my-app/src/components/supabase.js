@@ -13,22 +13,19 @@ async function signIn(email,password){
   })
   console.log({data,error})
 }
-async function signUpNewUser( email, password) {
+async function signUpNewUser(email, password) {
   const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
   })
   console.log({data,error})
 }
-export async function authUser(email,password){
-  let { data, error } = await supabase
-  .from('users')
-  .select('email')
-  console.log({data,error});
-  if (data.email = email){
-    signIn(email,password);
+export function authUser(email,password){
+  signIn(email,password);
+  if (error != null){
+    return false
   }
   else{
-    signUpNewUser(email,password);
+    return true
   }
 }

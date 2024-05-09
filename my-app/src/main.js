@@ -7,6 +7,7 @@ import router from './router'
 import "primeflex/primeflex.css";
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { userStore } from './stores/loginStore';
 
 const app = createApp(App)
 
@@ -16,3 +17,5 @@ app.use(PrimeVue);
 app.component('InputText', InputText);
 app.component('Button', Button);
 app.mount('#app')
+
+const userState = userStore()

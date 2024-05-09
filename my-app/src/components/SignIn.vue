@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import { authUser } from './supabase';
-
+import { ref } from 'vue'
+import { authUser } from './supabase'
+import { userStore } from '@/stores/loginStore'
 export default {
   data() {
     return {
@@ -40,16 +41,18 @@ export default {
   },
   methods: {
     async submit() {
-      authUser(this.user.email,this.user.password)
+      const store = userStore
+      let loginState = authUser(this.user.email,this.user.password)
+      if (loginState === true){
+        store.isUserLoggedIn = true
+        store.username = this.user.email
+      }
+      else{
+        return false
+      }
     }
   }
 }
-/* import { userState } from '@/stores/loginStore';
-import InputText from 'primevue/inputtext'; 
-function loginUser(){
-    userState.email(email);
-    userState.password(password);
-} */
 </script>
 
 <style  scoped>
