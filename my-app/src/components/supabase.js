@@ -5,7 +5,7 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 let { data, error } = await supabase
   .from('tanks')
   .select('tank_name')
-console.log({data,error})
+// console.log({data,error})
 async function signIn(email,password){
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email,
