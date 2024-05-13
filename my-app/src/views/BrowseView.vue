@@ -1,6 +1,9 @@
 <template>
   <h2> tanks</h2>
-  <h2 class = "flexbox" >{{ tank.tank_name}}</h2>
+  <BrowseCata>
+    v-for="tank in tank"
+    :tank= tank
+  </BrowseCata>
 </template>
 
 <script setup>

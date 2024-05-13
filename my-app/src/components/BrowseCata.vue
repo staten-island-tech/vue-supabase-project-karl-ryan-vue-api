@@ -1,6 +1,6 @@
 <template>
-    <RouterLink :to="tankPath" class = "cardSet">
-      <h2> {{ tank.tank_name }}</h2>
+    <RouterLink :to="tankPath" class = "cardSet" v-if= "tank" >
+      <h2> {{ tank }}</h2>
     </RouterLink>
 </template>
 
@@ -10,6 +10,8 @@ import { RouterLink } from "vue-router";
 const props = defineProps({
   tank: Object,
 });
+
+console.log(props.tank)
 
 const tankPath = computed(() => {
   console.log("hi")
