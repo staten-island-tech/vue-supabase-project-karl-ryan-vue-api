@@ -1,9 +1,9 @@
 <template>
   <h2> tanks</h2>
-  <BrowseCata>
+  <BrowseCata
     v-for="tank in tank"
-    :tank= tank
-  </BrowseCata>
+    :tank= "tank"
+  />
 </template>
 
 <script setup>
