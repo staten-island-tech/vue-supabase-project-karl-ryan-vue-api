@@ -23,6 +23,7 @@ async function getTank() {
 
 onMounted(async () => {
   await getTank();
+  console.log(tank)
 })
 
 </script>
