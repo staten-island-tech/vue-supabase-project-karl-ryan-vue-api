@@ -21,7 +21,7 @@ const tankPath = computed(() => {
 
 <style scoped>
   .cardSet {
-  background-color: rgba(2, 2, 2, 0.596);
+  background-color: rgba(255, 255, 255, 0.596);
   border: 2px solid brown;
   margin: 3%;
   padding: 2.6%;
