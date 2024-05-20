@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/browse', //tank gun ammo price and information 
       name: 'browse',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/BrowseView.vue')
     },
     {
       path: '/shoppingcart',
       name: 'shoppingcart',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/CartView.vue')
     },
   
   ]

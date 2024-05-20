@@ -5,15 +5,15 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 let { data, error } = await supabase
   .from('tanks')
   .select('tank_name')
-console.log({data,error})
+ //console.log({data,error})
 async function signIn(email,password){
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email,
     password: password,
   })
-  return error
+  console.log({data,error})
 }
-async function signUpNewUser(email, password) {
+async function signUpNewUser( email, password) {
   const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
@@ -21,11 +21,14 @@ async function signUpNewUser(email, password) {
   console.log({data,error})
 }
 export async function authUser(email,password){
-  const error = await signIn(email,password);
-  if (error === null){
-    return true
+  let { data, error } = await supabase
+  .from('users')
+  .select('email')
+  //console.log({data,error});
+  if (data.email = email){
+    signIn(email,password);
   }
   else{
-    return false
+    signUpNewUser(email,password);
   }
 }
