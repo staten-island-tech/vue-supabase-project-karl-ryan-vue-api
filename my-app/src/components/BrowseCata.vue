@@ -16,7 +16,7 @@ console.log(props.tank);
 
 const tankPath = computed(() => {
   // return (props.tank)
-  return `/browse/${props.tank}`;
+  return `/browse/${props.tank.tank_name}`;
 });
 </script>  
 
