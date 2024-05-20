@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import BrowseCata from '@/components/BrowseCata.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +12,7 @@ const router = createRouter({
     {
       path: '/browse', //tank gun ammo price and information 
       name: 'browse',
-      component: BrowseCata
+      component: () => import('../views/AboutView.vue')
     },
     {
       path: '/shoppingcart',
