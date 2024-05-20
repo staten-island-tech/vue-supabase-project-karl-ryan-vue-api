@@ -18,8 +18,8 @@
                 <div class="flex align-items-center justify-content-between mb-6">
                     <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
                 </div>
-
-                    <Button @click="submit" label="Sign In" icon="pi pi-user" class="w-full"></Button>
+                    <Button @click="signUp" label="Sign Up" icon="pi pi-user" class="w-full"></Button>
+                    <Button @click="signIn" label="Sign In" icon="pi pi-user" class="w-full"></Button>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
 
 <script>
 import { ref } from 'vue'
-import { authUser } from './supabase'
+import { authUser, signUpNewUser } from './supabase'
 import { userStore } from '@/stores/loginStore'
 export default {
   data() {
@@ -40,9 +40,21 @@ export default {
     }
   },
   methods: {
-    async submit() {
+    async signIn() {
       const store = userStore
       let userState = await authUser(this.user.email,this.user.password)
+      if (userState === true){
+        store.isUserLoggedIn = true
+        store.username = this.user.email
+        this.$router.push('/browse')
+      }
+      else{
+        return false
+      }
+    },
+    async signUp() {
+      const store = userStore
+      let userState = await signUpNewUser(this.user.email,this.user.password)
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email
