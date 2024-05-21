@@ -9,16 +9,14 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <h1 class="green">Welcome</h1>
+    <h2>
+      Disclaimer: This website does not directly allow you to buy classified tank parts and is just a simulation. Nevertheless, you still need an account to access our website.
+    </h2>
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
@@ -41,4 +39,4 @@ h3 {
     text-align: left;
   }
 }
-</style>
+</style> -->

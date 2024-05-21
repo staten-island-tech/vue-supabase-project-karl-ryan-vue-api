@@ -10,14 +10,19 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/browse', //tank gun ammo price and information 
+      path: '/browse/',
       name: 'browse',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/BrowseView.vue')
+    },
+    {
+      path: '/data/:id',
+      name: 'data',
+      component: () => import('../views/BrowseView.vue')
     },
     {
       path: '/shoppingcart',
       name: 'shoppingcart',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/CartView.vue')
     },
   
   ]
