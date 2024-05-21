@@ -1,5 +1,4 @@
 <template>
-  <h2> tanks</h2>
   <div class = "flexbox">
   <BrowseCata
     v-for="tank in tanks"
@@ -39,15 +38,15 @@ onMounted(getTank);
 </script>
 
 <style>
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
     display: flex;
     align-items: center;
   }
-}
+} */
 
-.flexbox {
+.flexbox { 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
