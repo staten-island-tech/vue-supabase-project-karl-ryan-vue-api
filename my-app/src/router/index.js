@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/browse/',
+      path: '/browse',
       name: 'browse',
       component: () => import('../views/BrowseView.vue')
     },
     {
       path: '/data/:id',
       name: 'data',
-      component: () => import('../views/BrowseView.vue')
+      component: () => import('../views/DataView.vue')
     },
     {
       path: '/shoppingcart',
