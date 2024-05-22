@@ -9,12 +9,6 @@ import SignUp from './components/SignUp.vue'
 
     <div class="wrapper">
       <SignUp/>
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/browse">Browse</RouterLink>
-        <RouterLink to="/shoppingcart">Cart</RouterLink>
-      </nav>
     </div>
   </header>
 

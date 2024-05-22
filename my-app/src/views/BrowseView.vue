@@ -1,21 +1,36 @@
 <template>
-  <h2> tanks</h2>
+
   <div class = "flexbox">
+    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink>
   <BrowseCata
     v-for="tank in tanks"
     :key="tank" 
     :tank="tank"
   />
+  
   </div>
 </template>
 
 <script setup>
 import BrowseCata from '@/components/BrowseCata.vue';
+import { signOut } from '@/components/supabase';
 import { createClient } from '@supabase/supabase-js'
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { userStore } from '@/stores/loginStore';
 const route = useRoute();
-
+async function logOut() {
+      const store = userStore
+      let userState = await signOut()
+      if (userState === true){
+        store.isUserLoggedIn = false
+        store.username = null
+        this.$router.push('/')
+      }
+      else{
+        return false
+      }
+    }
 let tanks = ref([]);
 const getTank = async () => {
   const supabaseUrl = 'https://zqqcwuxpkpyushoxzsha.supabase.co'
@@ -54,5 +69,8 @@ onMounted(getTank);
   width: 100vw;
   justify-items: center;
   justify-content: center;
+}
+Button{
+  width: 1vw
 }
 </style>
