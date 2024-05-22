@@ -5,8 +5,14 @@
         <option v-for="nation in nations" :key="nation" :value="nation">{{ nation }}</option>
       </select>
   </nav>
+  <div class="flexbox">
+    <h2>User: {{ userStore.username }}</h2>
+    
+    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
+    <RouterLink to="/browse">Browse</RouterLink>
+    <RouterLink to="/shoppingCart">cart</RouterLink>
+  </div>
   <div class = "flexbox">
-    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink>
   <BrowseCata
     v-for="tank in filteredTanks"
     :key="tank" 
@@ -70,7 +76,7 @@ onMounted(getTank);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 85vw;
   justify-items: center;
   justify-content: center;
 }
