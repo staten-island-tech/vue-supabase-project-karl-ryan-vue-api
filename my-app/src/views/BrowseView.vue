@@ -1,7 +1,9 @@
 <template>
-
-  <div class = "flexbox">
+  <div>
+    <h2>User: {{ userStore.username }}</h2>
     <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink>
+  </div>
+  <div class = "flexbox">
   <BrowseCata
     v-for="tank in tanks"
     :key="tank" 
@@ -66,7 +68,7 @@ onMounted(getTank);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 85vw;
   justify-items: center;
   justify-content: center;
 }
