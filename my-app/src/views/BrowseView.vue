@@ -6,19 +6,23 @@
       </select>
   </nav>
   <div class = "flexbox">
+    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink>
   <BrowseCata
     v-for="tank in filteredTanks"
     :key="tank" 
     :tank="tank"
   />
+  
   </div>
 </template>
 
 <script setup>
 import BrowseCata from '@/components/BrowseCata.vue';
+import { signOut } from '@/components/supabase';
 import { createClient } from '@supabase/supabase-js'
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
+import { userStore } from '@/stores/loginStore';
 const route = useRoute();
 
 const tanks = ref();

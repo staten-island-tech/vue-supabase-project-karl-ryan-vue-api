@@ -6,12 +6,18 @@ let { data, error } = await supabase
   .from('tanks')
   .select('tank_name')
  //console.log({data,error})
-async function signIn(email,password){
+export async function signIn(email,password){
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email,
     password: password,
   })
-  return error
+  if (error === null){
+    return true
+  }
+  else{
+    return false
+  }
+  
 }
 export async function signUpNewUser(email, password) {
   const { data, error } = await supabase.auth.signUp({
@@ -25,12 +31,9 @@ export async function signUpNewUser(email, password) {
     return false
   }
 }
-export async function authUser(email,password){
-  const error = await signIn(email,password);
+export async function signOut(){
+  const { error } = await supabase.auth.signOut()
   if (error === null){
     return true
-  }
-  else{
-    return false
   }
 }
