@@ -27,8 +27,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { authUser, signUpNewUser } from './supabase'
+import { signIn, signUpNewUser } from './supabase'
 import { userStore } from '@/stores/loginStore'
 export default {
   data() {
@@ -42,7 +41,7 @@ export default {
   methods: {
     async signIn() {
       const store = userStore
-      let userState = await authUser(this.user.email,this.user.password)
+      let userState = await signIn(this.user.email,this.user.password)
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email
