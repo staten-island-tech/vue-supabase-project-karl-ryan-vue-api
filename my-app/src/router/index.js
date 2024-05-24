@@ -29,7 +29,7 @@ const router = createRouter({
     {
       path: '/data/:id',
       name: 'data',
-      component: () => import('../views/BrowseView.vue'),
+      component: () => import('../views/DataView.vue'),
       beforeEnter: (to, from, next) => {
         if(userStore.isUserLoggedIn != true) {
             next('/');
