@@ -5,7 +5,7 @@
         <option v-for="nation in nations" :key="nation" :value="nation">{{ nation }}</option>
       </select>
   </nav>
-  <div class="flexbox">
+  <div class="ribbon">
     <h2>User: {{ userStore.username }}</h2>
     <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
     <RouterLink to="/browse">Browse</RouterLink>
@@ -82,20 +82,33 @@ onMounted(getTank);
 </script>
 
 <style>
+
+.ribbon {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  border: 2px solid black;
+  gap: 15vw;
+  color: black;
+  margin-bottom: 2%
+}
 .flexbox {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  justify-items: center;
+  width: 99%;
   justify-content: center;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
+  gap: 20px;
   background-color: #000000;
 }
 
 .filter {
   justify-content: center;
   display: flex;
+  margin-bottom: 3vh
 }
 </style>

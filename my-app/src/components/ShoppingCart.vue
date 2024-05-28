@@ -7,22 +7,28 @@
       <div class="text">
       <ul>
         <li v-for="(item, index) in store.cart" :key="index">
-          {{ item.name }} - {{ item.quantity }} x {{ item.price }} Silver Lions
-          <button @click="() => removeFromCart(index)">Remove</button>
+          <h3>{{ item.name }}: Quantity - {{ item.quantity }} x {{ item.price }} Silver Lions
+          <button @click="() => removeFromCart(index)">Remove</button></h3> 
         </li>
       </ul>
-     <!--  <h3>Total Quantity: {{ /* calculateTotalQuantity()  */}}</h3> -->
-    </div>
+     <h3>Total Quantity: {{ calculateTotalQuantity()}}</h3>
+     <h3>Total Price: {{ calculateTotal() }} Silver Lions</h3>
+      </div>
     </div>
   </template>
   
   <script setup>
   import { userStore } from '../stores/loginStore.js'
+  import { signOut } from './supabase.js';
   const store = userStore();
-/*   const calculateTotalQuantity = () => {
-    const totalQuantity = store.cart.reduce((total, item) => total + item.quantity, 0);
-    return totalQuantity > 100 ? 'your soul' : String(totalQuantity);
-  }; */
+
+  const calculateTotalQuantity = () => {
+    return store.cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  function calculateTotal() {
+  return store.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
   function removeFromCart(index){
     store.cart.splice(index, 1);
@@ -33,11 +39,11 @@
   if (userState === true) {
     store.isUserLoggedIn = false;
     store.username = null;
-    this.$router.push('/');
+    store.cart = ([]);
   } else {
     return false;
   }
-}
+} 
 
   </script>
 
