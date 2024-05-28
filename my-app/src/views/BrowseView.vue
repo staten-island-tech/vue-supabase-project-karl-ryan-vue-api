@@ -27,7 +27,7 @@ async function logOut() {
       if (userState === true){
         store.isUserLoggedIn = false
         store.username = null
-        this.$router.push('/')
+        store.cart = []
       }
       else{
         return false
