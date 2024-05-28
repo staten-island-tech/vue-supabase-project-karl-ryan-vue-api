@@ -24,12 +24,25 @@
 
 <script setup>
 import BrowseCata from '@/components/BrowseCata.vue';
+import { computed } from 'vue';
 import { signOut } from '@/components/supabase';
 import { createClient } from '@supabase/supabase-js'
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { userStore } from '@/stores/loginStore';
 const route = useRoute();
+async function logOut() {
+      const store = userStore
+      let userState = await signOut()
+      if (userState === true){
+        store.isUserLoggedIn = false
+        store.username = null
+        this.$router.push('/')
+      }
+      else{
+        return false
+      }
+    }
 
 const tanks = ref();
 const selectedNation = ref('');

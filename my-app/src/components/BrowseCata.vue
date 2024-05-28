@@ -12,6 +12,7 @@
 </template>
 
 <script setup>
+import { userStore } from "@/stores/loginStore";
 import {ref, computed} from "vue";
 import { RouterLink } from "vue-router";
 const props = defineProps({
@@ -36,8 +37,10 @@ function decrement() {
 }
 
 function addToCart() {
+  let cart = userStore.cart
+  let item = { name: props.tank.tank_name, price: props.tank.price, nation: props.tank.nation, quantity: clicked.value }
   if (clicked.value > 0) {
-  cartValue({ name: props.tank.name, price: props.tank.price, nation: props.tank.nation, quantity: clicked.value });
+    cart.push(item);
   clicked.value = 0;
   }
     else {
