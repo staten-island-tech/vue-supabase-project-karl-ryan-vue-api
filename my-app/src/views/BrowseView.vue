@@ -7,7 +7,6 @@
   </nav>
   <div class="flexbox">
     <h2>User: {{ userStore.username }}</h2>
-    
     <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
     <RouterLink to="/browse">Browse</RouterLink>
     <RouterLink to="/shoppingCart">cart</RouterLink>
@@ -15,7 +14,7 @@
   <div class = "flexbox">
   <BrowseCata
     v-for="tank in filteredTanks"
-    :key="tank" 
+    :key="tank.tank_name" 
     :tank="tank"
   />
   
@@ -24,10 +23,9 @@
 
 <script setup>
 import BrowseCata from '@/components/BrowseCata.vue';
-import { computed } from 'vue';
 import { signOut } from '@/components/supabase';
 import { createClient } from '@supabase/supabase-js'
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import { userStore } from '@/stores/loginStore';
 const route = useRoute();
@@ -44,9 +42,9 @@ async function logOut() {
       }
     }
 
-const tanks = ref();
+const tanks = ref([]);
 const selectedNation = ref('');
-const nations = ref();
+const nations = ref([]);
 
 const getTank = async () => {
   const supabaseUrl = 'https://zqqcwuxpkpyushoxzsha.supabase.co'

@@ -13,11 +13,12 @@
 
 <script setup>
 import { userStore } from "@/stores/loginStore";
-import {ref, computed} from "vue";
+import { ref, computed} from "vue";
 import { RouterLink } from "vue-router";
 const props = defineProps({
   tank: Object,
 });
+const store = userStore();
 
 console.log(props.tank);
 
@@ -37,11 +38,10 @@ function decrement() {
 }
 
 function addToCart() {
-  let cart = userStore.cart
   let item = { name: props.tank.tank_name, price: props.tank.price, nation: props.tank.nation, quantity: clicked.value }
   if (clicked.value > 0) {
-    cart.push(item);
-  clicked.value = 0;
+    store.cart.push(item);
+    clicked.value = 0;
   }
     else {
     alert('There is 0 items selected. Please reselect. You cannot escape the snail...');
