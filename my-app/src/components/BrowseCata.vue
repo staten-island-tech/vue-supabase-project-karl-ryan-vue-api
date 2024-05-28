@@ -24,7 +24,7 @@ console.log(props.tank);
 
 const tankPath = computed(() => {
   // return (props.tank)
-  return `/browse/${props.tank.tank_name}`;
+  return `/data/${props.tank.tank_name}`;
 });
 
 let clicked = ref(0);
@@ -53,13 +53,12 @@ function addToCart() {
 <style scoped>
   .cardSet {
   background-color: rgba(255, 255, 255, 0.596);
-  border: 2px solid rgb(201, 0, 0);
-  margin: 3%;
-  padding: 2.6%;
   text-align: center;
   flex-basis: 15%;
-  width: 18%;
-  color: white
+  width: 28%;
+  margin-bottom: 100px;
+  color: white;
+  
 }
 
 .amount {
