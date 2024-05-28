@@ -17,5 +17,3 @@ app.use(PrimeVue);
 app.component('InputText', InputText);
 app.component('Button', Button);
 app.mount('#app')
-
-const userState = userStore()

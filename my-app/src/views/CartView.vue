@@ -1,11 +1,11 @@
 <template>
     <div>
-        <shoppingcart></shoppingcart>
+    <ShoppingCart/>
     </div>
 </template>
 
 <script setup>
-import shoppingcart from '../components/ShoppingCart.vue'
+import ShoppingCart from '../components/ShoppingCart.vue';
 </script>
 
 <style scoped>
