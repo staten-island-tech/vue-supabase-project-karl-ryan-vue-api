@@ -12,13 +12,17 @@
     <RouterLink to="/browse">Browse</RouterLink>
     <RouterLink to="/shoppingCart">cart</RouterLink>
   </div>
-  <div class = "flexbox">
-  <BrowseCata
-    v-for="tank in filteredTanks"
-    :key="tank" 
-    :tank="tank"
-  />
   
+  <div class = "flexbox">
+    <RouterLink
+      v-for="tank in filteredTanks"
+      :key="tank.tank_name"
+      :to="{ name: 'data', params: { id: tank.tank_name } }"
+    
+      >
+      <BrowseCata :tank="tank" />
+      
+    </RouterLink>
   </div>
 </template>
 
@@ -64,21 +68,16 @@ onMounted(getTank);
 </script>
 
 <style>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-
-.flexbox { 
+.flexbox {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 85vw;
+  width: 100%;
   justify-items: center;
   justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000000;
 }
 
 .filter {
