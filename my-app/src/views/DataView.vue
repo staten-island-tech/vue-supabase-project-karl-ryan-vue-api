@@ -1,7 +1,14 @@
 <template>
+ <div class="ribbon">
+    <h2>User: {{ userStore.username }}</h2>
+    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
+    <RouterLink to="/browse">Browse</RouterLink>
+    <RouterLink to="/shoppingCart">cart</RouterLink>
+  </div>
   <div v-if="tank" class="tank-details">
     <h2>{{ tank.tank_name }}</h2>
     <h3>Price: {{ tank.price }} Silver Lions</h3>
+    <img :src="tank.images" alt="image" />
   </div>
 </template>
 
@@ -9,6 +16,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { createClient } from '@supabase/supabase-js';
+import { userStore } from '@/stores/loginStore';
 
 const route = useRoute();
 const tank = ref(null);
