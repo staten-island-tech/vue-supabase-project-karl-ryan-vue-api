@@ -23,11 +23,18 @@
   const store = userStore();
 
   const calculateTotalQuantity = () => {
-    return store.cart.reduce((total, item) => total + item.quantity, 0);
+    if (store.cart.length > 0) {
+      return store.cart.reduce((total, item) => total + item.quantity, 0);
+    }
   };
 
   function calculateTotal() {
-  return store.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    if (store.cart.length > 0) {
+      return store.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
+    else{
+      return 0 
+    }
   };
 
   function removeFromCart(index){
@@ -39,7 +46,7 @@
   if (userState === true) {
     store.isUserLoggedIn = false;
     store.username = null;
-    store.cart = ([]);
+    store.cart = null;
   } else {
     return false;
   }

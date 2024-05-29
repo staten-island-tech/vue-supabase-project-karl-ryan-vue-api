@@ -42,7 +42,7 @@ async function logOut() {
       if (userState === true){
         store.isUserLoggedIn = false
         store.username = null
-        store.cart = []
+        store.cart.length = 0;
       }
       else{
         return false
