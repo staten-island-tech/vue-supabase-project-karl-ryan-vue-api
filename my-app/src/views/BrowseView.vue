@@ -84,26 +84,28 @@ onMounted(getTank);
 <style>
 
 .ribbon {
-  background-color: white;
+  background-color: rgba(175, 175, 175, 0.582);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 90vw;
   border: 2px solid black;
   gap: 15vw;
-  color: black;
-  margin-bottom: 2%
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 .flexbox {
   display: flex;
+  margin: 0 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 99%;
+  width: 90%;
   justify-content: center;
   border: 2px solid #ccc;
   border-radius: 5px;
   gap: 20px;
-  background-color: #000000;
+  background-color: #00000096;
 }
 
 .filter {

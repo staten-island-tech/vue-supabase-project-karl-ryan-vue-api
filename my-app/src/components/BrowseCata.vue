@@ -1,5 +1,6 @@
 <template>
-    <RouterLink :to="tankPath" class = "cardSet" v-if= "tank" >
+    <div class = "cardSet">
+    <RouterLink :to="tankPath" v-if= "tank" >
       <h2> {{ tank.tank_name }}</h2>
       <h3> Price: {{ tank.price }} Silver Lions</h3>
       <h3>Add: {{ clicked }}</h3>
@@ -8,6 +9,7 @@
     <button @click="decrement()"> - </button>
     <button @click="addToCart()"> Add to Cart </button>
     <button @click="increment()"> + </button>
+    </div>
     </div>
 </template>
 
@@ -52,16 +54,17 @@ function addToCart() {
 
 <style scoped>
   .cardSet {
-  background-color: rgba(255, 255, 255, 0.596);
+  background-color: rgba(255, 255, 255, 0.726);
   text-align: center;
-  flex-basis: 15%;
-  width: 28%;
-  margin-bottom: 100px;
+  flex-basis: 23%;
+  width: 49%;
+  margin: 0 auto;
   color: white;
   
 }
 
 .amount {
+  align-items: center;
   display: flex;
   flex-basis: 10%;
   padding: 10%;

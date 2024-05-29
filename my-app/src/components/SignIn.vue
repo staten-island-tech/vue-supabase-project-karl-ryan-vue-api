@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+    <div class = "base">
+        <div class="card">
             <div class="text-center mb-5">
-                <img src="../assets/image.png" alt="Image" height="50" class="mb-3" />
+           
                 <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
                 <span class="text-600 font-medium line-height-3">Don't have an account?</span>
                 <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
             </div>
 
-            <div>
+            <div class = "card">
                 <label for="email1" class="block text-900 font-medium mb-2">Email</label>
                 <InputText id="email1" type="text" placeholder="Email address" v-model="user.email" class="w-full mb-3" />
 
@@ -68,5 +68,18 @@ export default {
 </script>
 
 <style  scoped>
+.base {
+  padding: 11%;
+  margin: 0 auto;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: rgba(0, 0, 0, 0);
+}
 
+.card {
+  background-color: black;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 1%;
+}
 </style>

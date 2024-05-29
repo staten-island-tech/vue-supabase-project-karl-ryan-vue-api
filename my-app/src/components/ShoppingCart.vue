@@ -2,7 +2,7 @@
     <div class="cart">
         <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
         <RouterLink to="/browse">Browse</RouterLink>
-        <RouterLink to="/shoppingCart">cart</RouterLink>
+        <RouterLink to="/shoppingCart">Cart</RouterLink>
       <h2>Your Cart</h2>
       <div class="text">
       <ul>
@@ -58,12 +58,16 @@
 
 .cart {
     color: Black;
-    background-color: gray;
+    background-color: rgba(255, 255, 255, 0.603);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
     height: 100%;
+    padding-bottom: 33%;
+    margin-left: 9%;
+    margin-right: 9%;
+
 }
 .text {
     font-size: 30px bold;

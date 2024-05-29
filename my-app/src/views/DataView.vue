@@ -49,6 +49,7 @@ onMounted(getTankDetails);
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #000000;
+  background-color: #0000008a;
+  padding-bottom: 15%;
 }
 </style>
