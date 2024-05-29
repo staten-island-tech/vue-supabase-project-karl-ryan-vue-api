@@ -46,7 +46,7 @@
   if (userState === true) {
     store.isUserLoggedIn = false;
     store.username = null;
-    store.cart = null;
+    store.cart.length = 0;
   } else {
     return false;
   }
