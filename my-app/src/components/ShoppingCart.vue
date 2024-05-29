@@ -41,7 +41,7 @@
     store.cart.splice(index, 1);
   }
 
-  async function logOut() {
+ async function logOut() {
   let userState = await signOut();
   if (userState === true) {
     store.isUserLoggedIn = false;
