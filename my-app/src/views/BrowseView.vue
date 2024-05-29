@@ -7,9 +7,8 @@
   </nav>
   <div class="ribbon">
     <h2>User: {{ userStore.username }}</h2>
-    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
     <RouterLink to="/browse">Browse</RouterLink>
-    <RouterLink to="/shoppingCart">cart</RouterLink>
+    <RouterLink to="/shoppingCart">Orders/Logging Out</RouterLink>
   </div>
   
   <div class = "flexbox">
@@ -36,18 +35,6 @@ import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import { userStore } from '@/stores/loginStore';
 const route = useRoute();
-async function logOut() {
-      const store = userStore
-      let userState = await signOut()
-      if (userState === true){
-        store.isUserLoggedIn = false
-        store.username = null
-        store.cart.length = 0;
-      }
-      else{
-        return false
-      }
-    }
 
 const tanks = ref([]);
 const selectedNation = ref('');
@@ -78,6 +65,18 @@ const filteredTanks = computed(() => {
 });
 
 onMounted(getTank);
+
+async function endSession() {
+  const store = userStore
+  let userState = await signOut();
+  if (userState === true) {
+    store.isUserLoggedIn = false;
+    store.username = null;
+    store.cart.length = 0;
+  } else {
+    return false;
+  }
+} 
 
 </script>
 
