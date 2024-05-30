@@ -1,9 +1,8 @@
 <template>
  <div class="ribbon">
     <h2>User: {{ userStore.username }}</h2>
-    <RouterLink to="/loggedout" @click="logOut">Log Out</RouterLink> <br><br>
     <RouterLink to="/browse">Browse</RouterLink>
-    <RouterLink to="/shoppingCart">cart</RouterLink>
+    <RouterLink to="/shoppingCart">Orders/Logging Out</RouterLink>
   </div>
   <div v-if="tank" class="tank-details">
     <h2>{{ tank.tank_name }}</h2>
