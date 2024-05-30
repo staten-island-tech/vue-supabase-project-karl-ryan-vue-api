@@ -57,4 +57,17 @@ onMounted(getTankDetails);
   background-color: #0000008a;
   padding-bottom: 15%;
 }
+
+.ribbon {
+  background-color: rgba(175, 175, 175, 0.582);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
+  border: 2px solid black;
+  gap: 10vw;
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
 </style>
