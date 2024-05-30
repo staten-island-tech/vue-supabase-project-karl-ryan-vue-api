@@ -13,7 +13,7 @@
     <li>{{ tank.main_armament }}</li>
     <li>{{ tank.ammo_types }}</li>
     <li>{{ tank.chassis }}</li>
-    <h3>{{ tank.info }}</h3>
+    <h4>{{ tank.info }}</h4>
   </div>
 </template>
 
