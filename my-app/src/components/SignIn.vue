@@ -39,7 +39,6 @@ export default {
     async signIn() {
       const store = userStore
       let userState = await signIn(this.user.email,this.user.password)
-      await changePass(this.user.password)
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email

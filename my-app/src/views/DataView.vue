@@ -9,7 +9,11 @@
     <h2>{{ tank.tank_name }}</h2>
     <h3>Price: {{ tank.price }} Silver Lions</h3>
     <img :src="tank.images" alt="image" />
-    <h4>Information: {{tank.info}}</h4>
+    <h4>Information:</h4>
+    <li>{{ tank.main_armament }}</li>
+    <li>{{ tank.ammo_types }}</li>
+    <li>{{ tank.chassis }}</li>
+
   </div>
 </template>
 
