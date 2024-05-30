@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { signIn, signUpNewUser, changePass } from './supabase'
+import { signIn, signUpNewUser} from './supabase'
 import { userStore } from '@/stores/loginStore'
 export default {
   data() {
