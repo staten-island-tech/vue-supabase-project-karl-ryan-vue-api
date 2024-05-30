@@ -15,9 +15,6 @@
                 <label for="password1" class="block text-900 font-medium mb-2">Password</label>
                 <InputText id="password1" type="password" placeholder="Password" v-model="user.password" class="w-full mb-3" />
 
-                <div class="flex align-items-center justify-content-between mb-6">
-                    <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
-                </div>
                     <Button @click="signUp" label="Sign Up" icon="pi pi-user" class="w-full"></Button>
                     <Button @click="signIn" label="Sign In" icon="pi pi-user" class="w-full"></Button>
             </div>
@@ -27,7 +24,7 @@
 </template>
 
 <script>
-import { signIn, signUpNewUser } from './supabase'
+import { signIn, signUpNewUser, changePass } from './supabase'
 import { userStore } from '@/stores/loginStore'
 export default {
   data() {
@@ -42,6 +39,7 @@ export default {
     async signIn() {
       const store = userStore
       let userState = await signIn(this.user.email,this.user.password)
+      await changePass(this.user.password)
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email
