@@ -17,13 +17,13 @@
     :key="tank.tank_name" 
     :tank="tank"
   />
-  <RouterLink
+  <!-- <RouterLink
       v-for="tank in filteredTanks"
       :key="tank.tank_name"
       :tank="tank"
       :to="{ name: 'data', params: { id: tank.tank_name } }"
   >
-    </RouterLink>
+    </RouterLink> -->
   </div>
 </template>
 
