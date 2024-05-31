@@ -1,10 +1,10 @@
 <template>
   <nav class="filter">
-    <select v-model="selectedNation">
+    <select aria-label="tank nation" v-model="selectedNation">
         <option value="">All Nations</option>
         <option v-for="nation in nations" :key="nation" :value="nation">{{ nation }}</option>
-      </select>
-      <input type="text" v-model="searchBox" placeholder="Search By Tank name">
+    </select>
+      <input type="text" v-model="searchBox" aria-label="Search Box" placeholder="Search By Tank name">
   </nav>
   <div class="ribbon">
     <h2>User: {{ userStore.username }}</h2>
