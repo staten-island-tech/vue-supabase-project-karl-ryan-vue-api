@@ -5,7 +5,7 @@ import SignUp from './components/SignUp.vue'
 
 <template>
   <header>
-    <img alt="logo" class="logo" src="/war_thunder_logo.jpg" width="125" height="125" />
+    <img alt="image_logo" class="logo" src="/war_thunder_logo.jpg" width="125" height="125" />
 
     <div class="wrapper">
       <SignUp/>

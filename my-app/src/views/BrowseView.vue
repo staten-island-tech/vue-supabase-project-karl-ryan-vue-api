@@ -1,9 +1,10 @@
 <template>
   <nav class="filter">
-    <select v-model="selectedNation">
+    <select aria-label="tank nation" v-model="selectedNation">
         <option value="">All Nations</option>
         <option v-for="nation in nations" :key="nation" :value="nation">{{ nation }}</option>
-      </select>
+    </select>
+      <input type="text" v-model="searchBox" aria-label="Search Box" placeholder="Search By Tank name">
   </nav>
   <div class="ribbon">
     <h2>User: {{ userStore.username }}</h2>
@@ -13,23 +14,17 @@
   
   <div class = "flexbox">
   <BrowseCata
+    v-if="filteredTanks.length"
     v-for="tank in filteredTanks"
     :key="tank.tank_name" 
     :tank="tank"
   />
-  <!-- <RouterLink
-      v-for="tank in filteredTanks"
-      :key="tank.tank_name"
-      :tank="tank"
-      :to="{ name: 'data', params: { id: tank.tank_name } }"
-  >
-    </RouterLink> -->
+  <p v-else-if="searchBox">No Tanks With that Name...</p>
   </div>
 </template>
 
 <script setup>
 import BrowseCata from '@/components/BrowseCata.vue';
-import { signOut } from '@/components/supabase';
 import { createClient } from '@supabase/supabase-js'
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
@@ -38,6 +33,7 @@ const route = useRoute();
 
 const tanks = ref([]);
 const selectedNation = ref('');
+const searchBox = ref('');
 const nations = ref([]);
 
 const getTank = async () => {
@@ -58,25 +54,17 @@ const getTank = async () => {
  // console.log({ data, error })
 
 const filteredTanks = computed(() => {
-  if (!selectedNation.value) {
-    return tanks.value;
+  let filtered = tanks.value;
+  if (selectedNation.value) {
+    filtered = filtered.filter(tank => tank.nation === selectedNation.value);
   }
-  return tanks.value.filter(tank => tank.nation === selectedNation.value);
+  if (searchBox.value) {
+    filtered = filtered.filter(tank => tank.tank_name.toLowerCase().includes(searchBox.value.toLowerCase()));
+  }
+  return filtered;
 });
 
 onMounted(getTank);
-
-async function endSession() {
-  const store = userStore
-  let userState = await signOut();
-  if (userState === true) {
-    store.isUserLoggedIn = false;
-    store.username = null;
-    store.cart.length = 0;
-  } else {
-    return false;
-  }
-} 
 
 </script>
 

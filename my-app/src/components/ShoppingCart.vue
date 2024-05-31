@@ -26,6 +26,9 @@
     if (store.cart.length > 0) {
       return store.cart.reduce((total, item) => total + item.quantity, 0);
     }
+    else{
+      return 0 
+    }
   };
 
   function calculateTotal() {
