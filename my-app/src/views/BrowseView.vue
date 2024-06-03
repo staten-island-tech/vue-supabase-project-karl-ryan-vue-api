@@ -100,4 +100,24 @@ onMounted(getTank);
   display: flex;
   margin-bottom: 3vh
 }
+
+
+.cardSet{
+    width: 80%;
+    text-size-adjust: 1.5rem;
+    flex-basis: 80%;
+
+  }
+
+  @media screen and (max-width:500px){
+  .ribbon{
+    width: 90%;
+    text-size-adjust: 1.5rem;
+    justify-content: flex-start;
+
+  }
+  .filter {
+    margin-top: 10px;
+  }
+}
 </style>

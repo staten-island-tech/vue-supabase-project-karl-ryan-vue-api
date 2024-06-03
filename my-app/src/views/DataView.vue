@@ -69,4 +69,18 @@ onMounted(getTankDetails);
   margin: 0 auto;
   margin-bottom: 10px;
 }
+
+img {
+  max-width: 80vw;
+}
+
+@media screen and (max-width:500px){
+  .ribbon{
+    width: 90%;
+    text-size-adjust: 1.5rem;
+    justify-content: flex-start;
+    margin-top: 3vh;
+
+  }
+}
 </style>

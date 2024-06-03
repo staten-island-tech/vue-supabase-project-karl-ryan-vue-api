@@ -86,4 +86,15 @@ a {
   color: blue;
   text-decoration: none;
 }
+
+
+@media screen and (max-width:500px){
+  .cardSet{
+    width: 80%;
+    text-size-adjust: 1.5rem;
+    flex-basis: 80%;
+
+  }
+}
+
 </style>

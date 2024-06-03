@@ -28,4 +28,11 @@ defineProps({
 a {
   color: white
 }
+
+@media screen and (max-width:500px){
+  .greetings {
+    max-width: 90vw;
+    margin-left: 5%;
+  }
+}
 </style>
