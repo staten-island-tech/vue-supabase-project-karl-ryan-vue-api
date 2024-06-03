@@ -1,14 +1,13 @@
 <template>
     <div class = "base">
         <div class="card">
-            <div class="text-center mb-5">
-           
+            <div class="text-center mb-5">  
                 <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
                 <span class="text-600 font-medium line-height-3">Don't have an account?</span>
                 <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
             </div>
 
-            <div class = "card">
+            <div class = "cardInfo">
                 <label for="email1" class="block text-900 font-medium mb-2">Email</label>
                 <InputText id="email1" type="text" placeholder="Email address" v-model="user.email" class="w-full mb-3" />
 
@@ -19,7 +18,6 @@
                     <Button @click="signIn" label="Sign In" icon="pi pi-user" class="w-full"></Button>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -68,8 +66,6 @@ export default {
 .base {
   padding: 11%;
   margin: 0 auto;
-  margin-left: 100px;
-  margin-right: 100px;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -80,17 +76,27 @@ export default {
   padding: 1%;
 }
 
+.cardInfo {
+  background-color: black;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 1%;
+}
+
 
 @media screen and (max-width:500px){
   .card{
     width: 80%;
+    justify-content: center;
     text-size-adjust: 1.5rem;
-
+    padding: 10%;
+    margin-right: 3%;
+    margin-left: 10%
   }
-}
-@media screen and (max-width:900px){
-  .card{
+  .cardInfo{
     width: 80%;
+    justify-content: center;
+    margin-left: 15%;
   }
 }
 </style>

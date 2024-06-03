@@ -33,6 +33,7 @@ a {
   .greetings {
     max-width: 90vw;
     margin-left: 5%;
+    font-size: 0.75rem;
   }
 }
 </style>
