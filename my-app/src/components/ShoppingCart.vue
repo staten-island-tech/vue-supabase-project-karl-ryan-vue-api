@@ -19,7 +19,7 @@
   
   <script setup>
   import { userStore } from '../stores/loginStore.js'
-  import { signOut } from './supabase.js';
+  import { signOut, saveOrder } from './supabase.js'
   const store = userStore();
 
   const calculateTotalQuantity = () => {
@@ -45,6 +45,7 @@
   }
 
  async function logOut() {
+  await saveOrder(store.cart,store.userId)
   let userState = await signOut();
   if (userState === true) {
     store.isUserLoggedIn = false;
@@ -53,7 +54,9 @@
   } else {
     return false;
   }
-} 
+}
+
+
 
   </script>
 

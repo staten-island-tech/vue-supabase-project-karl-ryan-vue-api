@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { signIn, signUpNewUser} from './supabase'
+import { signIn, signUpNewUser, getUserId, getCart} from './supabase'
 import { userStore } from '@/stores/loginStore'
 export default {
   data() {
@@ -40,6 +40,8 @@ export default {
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email
+        store.userId = await getUserId(this.user.email)
+        store.cart = await getCart(store.userId)
         this.$router.push('/browse')
       }
       else{
@@ -52,6 +54,8 @@ export default {
       if (userState === true){
         store.isUserLoggedIn = true
         store.username = this.user.email
+        store.userId = await getUserId(this.user.email)
+        store.cart = await getCart(store.userId)
         this.$router.push('/browse')
       }
       else{
